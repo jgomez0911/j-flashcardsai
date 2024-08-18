@@ -1,6 +1,7 @@
 // pages/api/generateToken.js
 import admin from 'firebase-admin';
 import path from 'path';
+import { Auth } from 'firebase-admin/auth';
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {
@@ -13,7 +14,7 @@ if (!admin.apps.length) {
 
 const auth = admin.auth();
 
-export default async function handler(req, res) {
+export default async function GET(req) {
   if (req.method === 'POST') {
     const { clerkUserId } = req.body;
 
@@ -39,5 +40,5 @@ export default async function handler(req, res) {
   } else {
     res.setHeader('Allow', ['POST']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
-}
+    }
+    };
