@@ -15,8 +15,7 @@ if (!admin.apps.length) {
 
 const auth = admin.auth();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse,
-) {
+export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { clerkUserId } = req.body;
 
